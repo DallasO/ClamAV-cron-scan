@@ -19,6 +19,8 @@
 # ************************
 # *To run with Cron or Anacron*
 # You may want to replace the $USER to your preferred username
+# eg. $USER=username
+USER=$USER
 # ************************
 
 
