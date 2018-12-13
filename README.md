@@ -10,6 +10,9 @@ Follow the recommended installation steps for your distro on their [documentatio
 
 For an interactive gui, also install their *clamtk* package.
 
+### Debian
+`# apt install clamav clamtk`
+
 ## Planned features
 * Catch errors, such as *clamav* not installed
 * Command line arguments for more flexibility
