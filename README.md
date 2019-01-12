@@ -50,5 +50,5 @@ You can set up a separate anacron instance to run in user mode:
 ## Planned features
 * Catch errors, such as *clamav* not installed
 * Command line arguments for more flexibility
-* Integrate with notification provider, or rather **fix** the integration
 * Multiple distro support - if necessary
+* Show a progress notification? [Sounds like a hack](https://serverfault.com/q/759972) that won't be efficient. Maybe just change final notification to a summary.

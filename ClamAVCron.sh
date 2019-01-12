@@ -44,9 +44,9 @@ logfile="${scandir}.clamtk/history/${logdate}.log"
 ignoredir="${scandir}.local/share/Trash/"
 
 # notif - Start Scan
-#zenity --notification --text="ClamAV scan has been started"
+zenity --notification --text="ClamAV scan has been started"
 
 clamscan -ir -l $logfile --exclude-dir=$ignoredir $scandir &> /dev/null
 
 # notif - Scan Finished
-#zenity --notification --text="ClamAV scan has finished"
+zenity --notification --text="ClamAV scan has finished"
