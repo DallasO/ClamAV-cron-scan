@@ -4,8 +4,6 @@ This is a custom script that allows a user to scan their `~/home` folder using a
 
 View the [ClamAV Github page](https://www.clamav.net/).
 
----
-
 ## ClamAV Installation
 
 Follow the recommended installation steps for your distro on their [documentation](https://www.clamav.net/documents/installing-clamav) page.
@@ -14,8 +12,6 @@ For an interactive gui, also install their *clamtk* package.
 
 ### Debian
 `# apt install clamav clamtk`
-
----
 
 ## How to install this script
 
@@ -44,8 +40,6 @@ You can set up a separate anacron instance to run in user mode:
 3. Add the following line to your crontab using `crontab -e`:
 
         @hourly /usr/sbin/anacron -s -t $HOME/.anacron/etc/anacrontab -S $HOME/.anacron/spool
-
----
 
 ## Planned features
 * Catch errors, such as *clamav* not installed
