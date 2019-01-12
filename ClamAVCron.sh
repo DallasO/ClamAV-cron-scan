@@ -40,8 +40,8 @@ USER=$USER
 
 logdate=$(date "+%b-%d-%Y")
 scandir="/home/$USER/"
-logfile="${scandir}.clamtk/history/${logdate}.log"
-ignoredir="${scandir}.local/share/Trash/"
+logfile="$scandir.clamtk/history/$logdate.log"
+ignoredir="$scandir.local/share/Trash/"
 
 # notif - Start Scan
 zenity --notification --text="ClamAV scan has been started"

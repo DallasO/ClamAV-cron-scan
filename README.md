@@ -52,3 +52,4 @@ You can set up a separate anacron instance to run in user mode:
 * Command line arguments for more flexibility
 * Multiple distro support - if necessary
 * Show a progress notification? [Sounds like a hack](https://serverfault.com/q/759972) that won't be efficient. Maybe just change final notification to a summary.
+* If laptop, only run when plugged in?
