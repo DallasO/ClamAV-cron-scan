@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# This project is written with linux in mind. Setting shell scripts to use lf eols
+*.sh text eol=lf
