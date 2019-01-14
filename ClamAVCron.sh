@@ -7,14 +7,17 @@
 #
 # ****************************************************************************************************
 # The preferred method of using this script is with a separate anacron instance running in user mode
-# Credit to askubuntu answer | https://askubuntu.com/a/235090/611842
+#
 # ****************************************************************************************************
 #
-# 1. Create a `.anacron` folder in your home directory and in it two subfolders, `etc` and `spool`:
+# 1. Make sure this script is executable
+#     $ chmod u+x ClamAVCron.sh
+#
+# 2. Create a `.anacron` folder in your home directory and in it two subfolders, `etc` and `spool`:
 #
 #     $ mkdir -p ~/.anacron/{etc,spool}
 #
-# 2. Create a new file `~/.anacron/etc/anacrontab` with contents similar to the following:
+# 3. Create a new file `~/.anacron/etc/anacrontab` with contents similar to the following:
 #
 #         # /etc/anacrontab: configuration file for anacron
 #
@@ -26,7 +29,7 @@
 #         # period  delay  job-identifier  command
 #         1         10     clamav-scan     ClamAVCron.sh
 #
-# 3. By using:
+# 4. By using:
 #
 #      $ crontab -e
 #

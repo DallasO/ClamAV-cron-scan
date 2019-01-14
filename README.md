@@ -16,16 +16,20 @@ For an interactive gui, also install their *clamtk* package.
 ## How to install this script
 
 ### Using Anacron (preferred method)
-[Credit to askubuntu answer](https://askubuntu.com/a/235090/611842)
+
 <!-- language-all: bash -->
 
 You can set up a separate anacron instance to run in user mode:
 
-1. Create a `.anacron` folder in your home directory and in it two subfolders, `etc` and `spool`:
+1. Make sure this script is executable
+
+       chmod u+x ClamAVCron.sh
+
+2. Create a `.anacron` folder in your home directory and in it two subfolders, `etc` and `spool`:
 
        mkdir -p ~/.anacron/{etc,spool}
 
-2. Create a new file `~/.anacron/etc/anacrontab` with contents similar to the following:
+3. Create a new file `~/.anacron/etc/anacrontab` with contents similar to the following:
 
         # /etc/anacrontab: configuration file for anacron
 
@@ -37,7 +41,7 @@ You can set up a separate anacron instance to run in user mode:
         # period  delay  job-identifier  command
         1         10     clamav-scan     ClamAVCron.sh
 
-3. Add the following line to your crontab using `crontab -e`:
+4. Add the following line to your crontab using `crontab -e`:
 
         @hourly /usr/sbin/anacron -s -t $HOME/.anacron/etc/anacrontab -S $HOME/.anacron/spool
 
