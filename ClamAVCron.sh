@@ -69,10 +69,10 @@ else
 fi
 
 if hash /usr/bin/on_ac_power 2>/dev/null; then
-  onAC=$(/usr/bin/on_ac_power; echo $?;)
-else
   # Assume always on AC if on_ac_power doesn't exist
   onAC=0
+else
+  onAC=$(/usr/bin/on_ac_power; echo $?;)
 fi
 
 if [ $onAC -ne 0 ]; then
