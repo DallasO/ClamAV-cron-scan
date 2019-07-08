@@ -94,7 +94,7 @@ if [ $1 != 'test' ]; then
   logfile="$logfolder$logdate.log"
   ignoredir="$scandir.local/share/Trash/"
 
-  /usr/bin/clamscan -ir --log=$logfile --exclude-dir=$ignoredir $scandir &> /dev/null
+  /usr/bin/nice -n 10 /usr/bin/clamscan -ir --log=$logfile --exclude-dir=$ignoredir $scandir &> /dev/null
   # /bin/echo  "SCANNING"
 fi
 
