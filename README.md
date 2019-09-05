@@ -57,7 +57,6 @@ This will also allow you to scan directly from your terminal
         @hourly /usr/sbin/anacron -s -t $HOME/.anacron/etc/anacrontab -S $HOME/.anacron/spool
 
 ## Planned features
-* Catch errors, such as *clamav* not installed
 * Command line arguments for more flexibility
 * Multiple distro support - if necessary
 * Show a progress notification? [Sounds like a hack](https://serverfault.com/q/759972) that won't be efficient. Maybe just change final notification to a summary.
