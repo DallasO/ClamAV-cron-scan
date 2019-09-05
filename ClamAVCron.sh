@@ -48,36 +48,36 @@
 #      @hourly /usr/sbin/anacron -s -t $HOME/.anacron/etc/anacrontab -S $HOME/.anacron/spool
 #
 # ****************************************************************************************************
-set -u
-
-# USER=$USER
+set -u ;
 
 # Make sure ClamAV is installed
-# if [[ '/usr/bin/clamscan -V' ]]; then
-#   /bin/echo "ClamAV not found."
-#   /bin/echo "https://www.clamav.net/documents/installing-clamav"
-#   exit 1
-# fi
+if ! type -p /usr/bin/clamscan &> /dev/null ; then
+  /bin/echo "ClamAV not found." ;
+  /bin/echo "https://www.clamav.net/documents/installing-clamav" ;
+  exit 1 ;
+fi
 
 if /usr/bin/id -u $1 > /dev/null 2>&1; then
-  USER=$1
+  USER=$1 ;
 else
-  /bin/echo "Valid user required. Please use '$0 user'."
+  /bin/echo "Valid user required." ;
+  /bin/echo "Please use EXAMPLE:" ;
+  /bin/echo "\$ $0 $USER" ;
   if [ $1 != 'test' ]; then
-    exit 1
+    exit 1 ;
   fi
 fi
 
-if hash /usr/bin/on_ac_power 2>/dev/null; then
+if ! type -p /usr/bin/on_ac_power &> /dev/null; then
   # Assume always on AC if on_ac_power doesn't exist
-  onAC=0
+  onAC=0 ;
 else
-  onAC=$(/usr/bin/on_ac_power; echo $?;)
+  onAC=$(/usr/bin/on_ac_power; echo $?;) ;
 fi
 
 if [ $onAC -ne 0 ]; then
-  /bin/echo "Not on AC Power. Skipping."
-  exit 1
+  /bin/echo "Not on AC Power. Skipping." ;
+  exit 1 ;
 fi
 
 # notif - Start Scan
@@ -87,14 +87,14 @@ fi
 
 if [ $1 != 'test' ]; then
 
-  logdate=$(date "+%b-%d-%Y")
-  scandir="/home/$USER/"
-  logfolder="$scandir.clamtk/history/"
-  mkdir -p $logfolder
-  logfile="$logfolder$logdate.log"
-  ignoredir="$scandir.local/share/Trash/"
+  logdate=$(date "+%b-%d-%Y") ;
+  scandir="/home/$USER/" ;
+  logfolder="$scandir.clamtk/history/" ;
+  mkdir -p $logfolder ;
+  logfile="$logfolder$logdate.log" ;
+  ignoredir="$scandir.local/share/Trash/" ;
 
-  /usr/bin/nice -n 10 /usr/bin/clamscan -ir --log=$logfile --exclude-dir=$ignoredir $scandir &> /dev/null
+  /usr/bin/nice -n 10 /usr/bin/clamscan -ir --log=$logfile --exclude-dir=$ignoredir $scandir &> /dev/null ;
   # /bin/echo  "SCANNING"
 fi
 
