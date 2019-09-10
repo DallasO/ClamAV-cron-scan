@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  shellcheck:
+    docker:
+      - image: koalaman/shellcheck-alpine:stable
+    steps:
+      - checkout
+      - run:
+          name: Check Scripts
+          command: find . -type f -name '*.sh' | xargs shellcheck --external-sources
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - shellcheck
