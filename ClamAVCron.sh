@@ -19,7 +19,7 @@
 #
 # 3. Add the following line to your crontab using `crontab -e`:
 #
-#      @hourly /usr/sbin/anacron -s -t $HOME/.anacron/etc/anacrontab -S $HOME/.anacron/spool
+#      @hourly /usr/local/bin/clamscan-cron user [period] >/dev/null 2>&1
 #
 #******************************************************************************************
 set -o nounset ;

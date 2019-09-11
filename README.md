@@ -31,10 +31,11 @@ link it in /usr/local/bin (see `run-parts`)
 
 5. Add the following line to your crontab using `crontab -e`:
 
-       @hourly /usr/sbin/anacron -s -t $HOME/.anacron/etc/anacrontab -S $HOME/.anacron/spool
+       @hourly /usr/local/bin/clamscan-cron user [period] >/dev/null 2>&1
 
 ## Planned features
 * make sure negative time can't be entered
+* change rm to /bin/rm
 * Change to sh for more portability
 * Eventually fix notifications :/
 * Command line arguments for more flexibility
