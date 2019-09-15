@@ -13,6 +13,7 @@
 #     $ chmod u+x ClamAVCron.sh
 #
 # 2. If you would like to invoke this script at any time from the terminal,
+#    or share with other users,
 #    link it in /usr/local/bin (see `run-parts`)
 #
 #     # ln -s /path/to/ClamAVCron.sh /usr/local/bin/clamscan-cron
