@@ -9,10 +9,8 @@ View the [ClamAV Github page](https://www.clamav.net/).
 
 Follow the recommended installation steps for your distro on their [documentation](https://www.clamav.net/documents/installing-clamav) page.
 
-For an interactive gui, also install their *clamtk* package.
-
-### Debian
-`# apt install clamav clamtk`
+For an interactive gui, also install their *clamtk* package.  
+E.g. Debian: `$ sudo apt install clamav clamtk`
 
 ## How to use this script
 
@@ -24,18 +22,18 @@ For an interactive gui, also install their *clamtk* package.
 
        $ chmod u+x ClamAVCron.sh
 
-2. If you would like to invoke this script at any time from the terminal,  
+2. If you would like to invoke this script at any time from the terminal, or share with other users,  
 link it in /usr/local/bin (see `run-parts`)
 
        # ln -s /path/to/ClamAVCron.sh /usr/local/bin/clamscan-cron
 
-5. Add the following line to your crontab using `crontab -e`:
+3. Add the following line to your crontab using `crontab -e`:  
+Replace `[period]` with number of days between scans. default: 7
 
        @hourly /usr/local/bin/clamscan-cron user [period] >/dev/null 2>&1
 
 ## Planned features
-* make sure negative time can't be entered
-* change rm to /bin/rm
+* Should use tmp file for logfile until scan complete
 * Change to sh for more portability
 * Eventually fix notifications :/
 * Command line arguments for more flexibility
