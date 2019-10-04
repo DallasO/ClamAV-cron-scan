@@ -46,7 +46,7 @@ else
   fi
 fi
 
-# How oten should we scan? default: 7 days
+# How often should we scan? default: 7 days
 recur="${2-7}" ;
 # Make sure period always positive
 recur="${recur#-}" ;
@@ -109,7 +109,11 @@ if [ "$1" != 'test' ] ; then
 
   trap '/bin/rm -f "$spoolfile" "$logfile"; exit' INT TERM EXIT ;
 
-  /usr/bin/nice -n 10 /usr/bin/clamscan -ir --log="$logfile" --exclude-dir="$ignoredir" "$scandir" &> /dev/null ;
+  /usr/bin/nice -n 10 /usr/bin/clamscan -or --log="$logfile" --exclude-dir="$ignoredir" "$scandir" &> /dev/null || true;
+  # Or is this better? 
+  # cat /tmp/doesnotexist && rc=$? || rc=$?    
+  # https://stackoverflow.com/a/15844901/6940403
+  
   # /bin/echo  "SCANNING"
 
   trap - INT TERM EXIT ;

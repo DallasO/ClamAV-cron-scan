@@ -33,6 +33,7 @@ Replace `[period]` with number of days between scans. default: 7
        @hourly /usr/local/bin/clamscan-cron user [period] >/dev/null 2>&1
 
 ## Planned features
+* Add list of directories to ignore (ie, node_modules, python_modules, .git, etc.)
 * Should use tmp file for logfile until scan complete
 * Change to sh for more portability
 * Eventually fix notifications :/
